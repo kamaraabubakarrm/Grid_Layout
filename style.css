@@ -121,3 +121,34 @@ nav{
     font-size: 3em;
     padding-bottom: 50px;
 }
+@media (max-width:960px){
+    #wrapper{
+    grid-template-columns: 100% auto;
+    grid-template-rows: 100% 100% auto;
+    grid-template-areas: 
+    "sidebar"
+    "main"
+    "footer";
+    font-size: 1em;
+}
+
+.footer h4{
+    font-size: 0.5rem;
+}
+nav{
+    height: 100%;
+    position: relative;
+}
+.nav-list{
+    height: 100%;
+    display: flex;
+   
+}
+.brand{
+  
+    left: 50%;
+    font-size: 25px;
+}
+.sidebar{
+
+}
