@@ -35,7 +35,7 @@ section blockquote{
 .sidebar{
     grid-area: sidebar;
     background-color: #2c1b28;
-    position: fixed;
+    position: relative;
  
 }
 nav{
