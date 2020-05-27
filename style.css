@@ -61,3 +61,33 @@ nav{
     text-transform: uppercase;
     padding: 1rem;
 }
+.main-content{
+    grid-area: main;
+    background-color: lavender;
+    font-size: 15px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-content1{
+    grid-area: main1;
+    background-color: lavender;
+    font-size: 15px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content2{
+    grid-area: main2;
+    background-color: lavender;
+    font-size: 15px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content3{
+    grid-area: main3;
+    background-color: lavender;
+    font-size: 15px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
