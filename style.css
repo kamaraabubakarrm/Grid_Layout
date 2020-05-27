@@ -1,1 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+a{
+    text-decoration: none;
+}
+
+section blockquote{
+    background: darkgrey;
+    color: floralwhite;
+}
+
+#wrapper{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: auto 80%;
+    grid-template-areas: 
+    "sidebar main"
+    "sidebar main1"
+    "sidebar main2"
+    "sidebar main3"
+    "sidebar footer";
+}
