@@ -31,3 +31,33 @@ section blockquote{
     "sidebar main3"
     "sidebar footer";
 }
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: #2c1b28;
+    position: fixed;
+ 
+}
+nav{
+    text-align: center;
+}
+.brand{
+    background-color: #fff;
+    padding:2.5rem 0;
+}
+.brand > .nav-link{
+    font-size: 2.5rem 0;
+    color: #2c1b28;
+}
+.nav-list{
+    list-style: none;
+}
+.nav-item{
+    margin: 5rem 0;
+}
+.nav-link{
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem;
+}
