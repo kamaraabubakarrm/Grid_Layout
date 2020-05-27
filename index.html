@@ -39,3 +39,152 @@
             </nav>
             
         </section>
+        
+         <section class="main-content">
+            <h1>Grid<h6>Layout</h6></h1><br />
+            <p id="introduction">
+            	<h1 id="intro">INTRODUCTION TO GRID LAYOUT</h1><br />CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward. This article will give you all you need to know to get started with page layout.
+               <h5>What is grid layout?</h5>
+A grid is a collection of horizontal and vertical lines creating a pattern against which we can line up our design elements. They help us to create designs where elements don’t jump around or change width as we move from page to page, providing greater consistency on our websites.
+
+A grid will typically have columns, rows, and then gaps between each row and column — commonly referred to as gutters.
+            </p>
+
+        <section class="main-content2">
+        	  <p id="know"> 
+        	  <h1 id="know">What you should already know</h1>
+           I first heard about CSS Grid towards the end of 2016. I was sitting at one of my first Tech Ladies meetings and an attendee mentioned hearing how amazing it was. Fast forward a year and a half later and I’m finally digging deeper into Grid. As a devoted Flexbox user, I can already tell how this will be a game changer.
+
+The biggest question I had when beginning to learn about CSS Grid was: how is Grid different than Flexbox? And I found out that in general, Grid can do everything that Flexbox can do. Some people are of the mindset that Grid is for multi-dimensional layouts while Flexbox should be used for one-dimensional layouts. But Grid is great at one-dimensional layouts as well — especially if you come back later and decide that you want to make that layout multi-dimensional.
+			Setting Up CSS Grid
+Grid is extremely easy to setup — all it takes is two lines of CSS.
+
+<h3>HTML</h3>
+  <blockquote>
+  div class=”wrapper”<br> 
+  div class=”item” </br>
+  div class=”item”>2</br>
+  div class=”item”>3</br>
+  div class=”item”>4</br>
+  div class=”item”>5</br>
+  div class=”item”>6</br>
+</blockquote>
+<h3>CSS</h3>
+<blockquote>
+.wrapper {
+    display: grid;</br>
+    grid-template-columns: 10rem 10rem 10rem;</br>
+}
+</blockquote>
+And voila! You have a grid. Seriously, that’s all you need. It’s pretty great.
+
+You’ll notice that, unlike when setting Flexbox to display: flex, adding display: grid to your wrapper doesn’t immediately make a difference. This is because you aren’t explicitly defining how many columns you want your grid to have. You’ll do this with grid-template-columns like I did above. So in this example, I’m setting three columns to have a width of 10rem each.
+        </p>
+        </section>
+  
+
+        <section class="main-content1">
+        	 <p id="works">
+        	<h1 id="it-works"> How it Works</h1>
+            Creating your grid in CSS
+Having decided on the grid that your design needs, you can use CSS Grid Layout to create that grid in CSS and place items onto it. We will look at the basic features of Grid Layout first and then explore how to create a simple grid system for your project.
+
+Defining a grid
+As a starting point, download and open the starting point file in your text editor and browser (you can also see it live here). You will see an example with a container, which has some child items. By default these display in normal flow so the boxes display one below the other. We will be working with this file for the first part of this lesson, making changes to see how grid behaves.
+
+To define a grid we use the grid value of the display property. As with Flexbox, this switches on Grid Layout, and all of the direct children of the container become grid items. Add this to the CSS inside your file:
+<blockquote> .container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px; </blockquote>
+    Unlike flexbox, the items will not immediately look any different. Declaring display: grid gives you a one column grid, so your items will continue to display one below the other as they do in normal flow.
+
+To see something that looks more grid-like, we will need to add some columns to the grid. Let's add three 200-pixel columns here. You can use any length unit, or percentages to create these column tracks.
+<blockquote>.container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+}</blockquote>
+Gaps between tracks
+To create gaps between tracks we use the properties grid-column-gap for gaps between columns, grid-row-gap for gaps between rows, and grid-gap to set both at once.
+<blockquote>.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 20px;
+}</blockquote>
+The implicit and explicit grid
+We have only specified column tracks so far, and yet rows are being created to hold our content. This is an example of the explicit versus the implicit grid. The explicit grid is the one that you create using grid-template-columns or grid-template-rows. The implicit grid is created when content is placed outside of that grid — such as into our rows. The explicit and implicit grids are analogous to the main and cross flexbox axes.
+
+By default, tracks created in the implicit grid are auto sized, which in general means that they are large enough to fit their content. If you wish to give implicit grid tracks a size you can use the grid-auto-rows and grid-auto-columns properties. If you add grid-auto-rows with a value of 100px to your CSS, you will see that those created rows are now 100 pixels tall.
+<blockquote>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 100px;
+    grid-gap: 20px;
+  }
+  </blockquote>
+  The minmax() function
+Our 100-pixel tall tracks won’t be very useful if we add content into those tracks that is taller than 100 pixels, in which case it would cause an overflow. It might be better to have tracks that are at least 100 pixels tall and can still expand if more content gets into them. A fairly basic fact about the web is that you never really know how tall something is going to be; additional content or larger font sizes can cause problems with designs that attempt to be pixel perfect in every dimension.
+
+The minmax() function lets us set a minimum and maximum size for a track, for example minmax(100px, auto). The minimum size is 100 pixels, but the maximum is auto, which will expand to fit the content. Try changing grid-auto-rows to use a minmax value:
+<blockquote>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+}</blockquote>
+As many columns as will fit
+We can combine some of the things we have learned about track listing, repeat notation and minmax() to create a useful pattern. Sometimes it is helpful to be able to ask grid to create as many columns as will fit into the container. We do this by setting the value of grid-template-columns using repeat() notation, but instead of passing in a number, pass in the keyword auto-fill. For the second parameter of the function we use minmax(), with a minimum value equal to the minimum track size that we would like to have, and a maximum of 1fr.
+
+Try this in your file now, using the below CSS:
+<blockquote>.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+  }</blockquote>
+  Positioning with grid-template-areas
+An alternative way to place items on your grid is to use the grid-template-areas property and giving the various elements of your design a name.
+
+Remove the line-based positioning from the last example (or re-download the file to have a fresh starting point), and add the following CSS.
+<blockquote>.container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+  }
+  
+  header {
+    grid-area: header;
+  }
+  
+  article {
+    grid-area: content;
+  }
+  
+  aside {
+    grid-area: sidebar;
+  }
+  
+  footer {
+    grid-area: footer;
+  }</blockquote>
+</p>
+        	
+        </section>
+
+        <section class="main-content2">
+        	  <p id="summary"> <h1 class="summary">Summary</h1>
+            In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.
+            In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.In this overview we have toured the main features of CSS Grid Layout. You should be able to start using it in your designs. To dig further into the specification, read our guides to Grid Layout, which can be found below.
+        </p>
+        </section>
+
+        <section class="main-content3">
+        	
+         <p id="reference"> <h1 class="reference">Reference</h1>
+            We reference Abubakarr and Yusufu
+        </p>
+        </section>
+
