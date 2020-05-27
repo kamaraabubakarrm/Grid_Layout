@@ -91,3 +91,33 @@ nav{
     margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+#know{
+    text-align: center;
+}
+.main-content #intro{
+    text-align: center;
+}
+
+#it-works{
+    text-align: center;
+}
+.summary{
+    text-align: center;
+}
+
+.reference{
+    text-align: center;
+}
+.footer{
+    grid-area: footer;
+    background-color: #fabc3c;
+    height: 100%;
+   
+   
+}
+.footer h4{
+    text-align: center;
+    padding-top: 50px;
+    font-size: 3em;
+    padding-bottom: 50px;
+}
